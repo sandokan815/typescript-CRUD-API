@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { letterCombinations } from '../utils/letterCombinations'; // Import the function
 
 interface User {
   id: number;
@@ -39,7 +40,7 @@ export const updateUser = (req: Request, res: Response): Response => {
   const userIndex = users.findIndex((user) => user.id === parseInt(id));
 
   if (userIndex === -1) {
-      return res.status(404).json({ message: "User not found" });
+    return res.status(404).json({ message: "User not found" });
   }
 
   if (name) users[userIndex].name = name;
@@ -55,10 +56,21 @@ export const deleteUser = (req: Request, res: Response): Response => {
   const userIndex = users.findIndex((user) => user.id === parseInt(id));
 
   if (userIndex === -1) {
-      return res.status(404).json({ message: "User not found" });
+    return res.status(404).json({ message: "User not found" });
   }
 
   const deletedUser = users.splice(userIndex, 1);
 
   return res.status(200).json(deletedUser[0]);
+};
+
+// Get Combined Letters from Phone Map
+export const getLetterCombinations = (req: Request, res: Response): void => {
+  const digits = req.query.digits as string;
+
+  // if (digits.includes('1')) {
+  //   res.status(400).json({ message: 'Don not include 1'})
+  // }
+  const combinations = letterCombinations(digits);
+  res.status(200).json(combinations);
 };

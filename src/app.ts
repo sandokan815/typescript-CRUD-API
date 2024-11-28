@@ -8,7 +8,7 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/users', userRoutes);
+app.use('/', userRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

@@ -45,23 +45,33 @@ The application follows **RESTful principles**, where each endpoint serves a spe
 
 This API is designed to handle basic CRUD operations for user management, making it easy to manage users in your system. The design serves as a solid foundation for building more complex APIs, such as those with authentication, authorization, and advanced business logic.
 
-## Installation
-
-To run this project locally, follow these steps:
-- **npm install**
-- **npm run dev**
-
-For Unit Test, run the below command
-- **npm test**
-
-### Prerequisites
+### 4. Prerequisites
 
 Make sure you have the following installed:
 - **Node.js** (version 14 or higher)
 - **npm** (Node Package Manager)
 
-### Steps
+### 5. `GET /letter-combinations`
+Get all possible letter combinations for a given phone number input (digits 2-9).
 
+**Query Parameter:**
+- `digits`: A string of digits (2-9).
+
+**Example:**
+- Input: `GET /letter-combinations?digits=23`
+- Output: `["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]`
+
+### Steps
 1. Clone the repository:
    ```bash
    git clone https://github.com/sandokan815/typescript-CRUD-API.git
+
+2. Install and Test
+   ```bash
+   npm install
+   npm run dev
+   npm test
+
+
+
+
